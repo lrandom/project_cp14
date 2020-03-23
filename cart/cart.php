@@ -13,6 +13,20 @@ if (isset($_GET['delete'])) {
         $_SESSION['cart'] = $cart;
     }
 }
+
+if (isset($_GET['plus'])) {
+    $id = $_GET['id'];
+    if (isset($_SESSION['cart'])) {
+        $cart = $_SESSION['cart'];
+        for ($i = 0; $i < count($cart); $i++) {
+            if ($cart[$i]['id'] == $id) {
+                $cart[$i]['quantity'] += 1;
+                break;
+            }
+        }
+        $_SESSION['cart'] = $cart;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +47,9 @@ if (isset($_GET['delete'])) {
         <span><?php echo $r['price'] ?></span>
         <span><?php echo $r['quantity'] ?></span>
         <span><a href="?delete&id=<?php echo $r['id']; ?>">Xoa</a></span>
+        <span><a href="?plus&id=<?php echo $r['id']; ?>">+</a><span>
+                <span><a href="?minus&id=<?php echo $r['id']; ?>">-</a></span>
+
     </div>
     <?php
         }
