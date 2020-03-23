@@ -1,4 +1,19 @@
-<?php session_start(); ?>
+<?php session_start();
+if (isset($_GET['delete'])) {
+    //xoa sp
+    $id = $_GET['id'];
+    if (isset($_SESSION['cart'])) {
+        $cart = $_SESSION['cart'];
+        for ($i = 0; $i < count($cart); $i++) {
+            if ($cart[$i]['id'] == $id) {
+                array_splice($cart, $i);
+                break;
+            }
+        }
+        $_SESSION['cart'] = $cart;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
