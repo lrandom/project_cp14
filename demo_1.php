@@ -20,14 +20,38 @@ session_start();
         setcookie('class', 'cp14', time() - 60 * 60 * 24 * 30 * 12);
         unset($_COOKIE['class']);
     }*/
-    $_SESSION['class'] = 'CP14';
+    /* $_SESSION['class'] = 'CP14';
     if (isset($_SESSION['class'])) {
         echo $_SESSION['class'];
         unset($_SESSION['class']);
         session_unset();
         session_destroy();
-    }
+    }*/
     ?>
+
+    <p id="wrapper" class="wrapper">
+        ABCD
+    </p>
+
+    <style>
+    p#wrapper {
+        background: red;
+    }
+
+    p.wrapper {
+        background: yellow;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        position: relative;
+        top: 10;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+
+    }
+    </style>
 </body>
 
 </html>
